@@ -1,5 +1,6 @@
 ## LoftSchool example project
-# geo
+# geo dev
+# dev
 ### Доступные команды
 
 * `npm install` - установить зависимости

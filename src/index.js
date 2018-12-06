@@ -1,24 +1,7 @@
 // including styles
-import './style/index.css';
-
-//including templates
-import render from './templates/friends.hbs';
+import './styles/index.css';
 
 //including js
-import { dnd, examplepublic } from './js/dnd'; 
+import { yandexMap} from './js/yandexMap'; 
 
-console.log('index works');
-
-const container = document.querySelector('.container');
-
-const items = [
-  {name: 'gsg',  lastname: 'lasr'},
-  {name: 'sdds',  lastname: 'sdad'},
-  {name: 'gqeqwe',  lastname: 'lasdasdr'},
-
-];
-
-container.innerHTML = render({items});
-
-dnd();
-examplepublic();
+yandexMap();

@@ -7,6 +7,7 @@
   flex-flow: column;
   border-radius: 10px;
   z-index: 5; 
+  left: -300%;
 }
 
 .popup__header {
@@ -38,4 +39,60 @@
   position: absolute;
   right: 15px;
 }
+
+.popup__wrapper {
+  padding: 0 15px 0 15px;
+}
+
+.popup__description {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  flex-flow: column;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 15px;
+  overflow: auto; 
+}
+.popup__description::-webkit-scrollbar {
+  width: 4px;
+  
+}
+
+/* Track */
+.popup__description::-webkit-scrollbar-track {
+  background: white; 
+}
+
+/* Handle */
+.popup__description::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 2px; 
+}
+
+.popup__description:hover::-webkit-scrollbar-thumb {
+  background: #c4c4c4;
+}
+
+.popup__list {
+  margin-bottom: 10px;
+}
+
+.popup__name {
+  font-size: 16px;
+  font-family: 'FiraMedium';
+  font-weight: bold;
+}
+
+.popup__place {
+  font-size: 16px;
+  font-family: 'FiraLight';
+  color: #9b9b9b;
+  margin-left: 10px;
+}
+
+popup__msg {
+  font-size: 15px;
+  font-family: 'FiraMedium';
+}
+
 

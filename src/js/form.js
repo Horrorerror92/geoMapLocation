@@ -1,13 +1,13 @@
-function form() {
+function form(headerText) {
 
   return `<div class="popup__header">
             <img src="./src/image/marker.svg" alt="" class="popup__marker">
-            <h4 class="popup__headertext">Lorem ipsum dolor sit amet.</h4>
+            <h4 class="popup__headertext">${headerText}</h4>
             <button class="popup__cross"></button>
           </div>
           <div class="popup__wrapper">
             <div class="popup__description"></div>
-            <form action="" class="form">
+            <form action="" class="form" name="popupform">
                 <div class="form__headertext">Ваш отзыв</div>
                 <div class="form__row">
                     <input placeholder="Ваше имя" class="form__input" type="text" name="yourname"/>

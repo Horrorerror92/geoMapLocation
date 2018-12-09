@@ -1,0 +1,17 @@
+#ballon__header {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: blue;
+  cursor: pointer;
+}
+
+#ballon__header:hover {
+  color: red;
+}
+
+.ballon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}

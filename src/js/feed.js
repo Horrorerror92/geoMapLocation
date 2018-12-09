@@ -5,15 +5,16 @@ import { positionForm} from './positionForm'
 
 
 
-function feed(popup, coordinates, head, data) {
+function feed(coordinates, headerText, data) {
   
-  popup = document.querySelector('.popup');
+  let popup = document.querySelector('.popup');
   popup.setAttribute('style', `left: ${coordinates.get('pagePixels')[0]}px; top: ${coordinates.get('pagePixels')[1]}px;`);
-  popup.innerHTML = form(head);
+  popup.innerHTML = form(headerText);
   closeCross(popup);
-  buttonAdd();
-
+  buttonAdd(coordinates, headerText, data);
   positionForm(popup);
+  
+
 }
 
 export {

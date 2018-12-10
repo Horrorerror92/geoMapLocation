@@ -1,6 +1,5 @@
 import { feed } from './feed'
 
-
 function yandexMap (){
   ymaps.ready(init);
   
@@ -10,8 +9,6 @@ function yandexMap (){
         zoom: 14,
         controls: []
     });
-
-    var myMap;
     let places = [];
     let customItemContentLayout = ymaps.templateLayoutFactory.createClass(
       '<div class="ballon"><a id=ballon__header>{{ properties.balloonContentHeader|raw }}</a>' +
@@ -56,7 +53,7 @@ function yandexMap (){
       if (!e.get('target')._clusterListeners) {
 
         ymaps.geocode(coords).then(function(headerText) {
-          feed(e, headerText.geoObjects.get(0).properties._data.name, data)
+          feed(e, headerText.geoObjects.get(0).properties._data.name, data, myMap, clusterer, places)
          
         });
 
@@ -73,7 +70,7 @@ function yandexMap (){
 
             if (event.target.id === "ballon__header") {
               myMap.balloon.close();
-              feed(e, event.target.innerText, result);
+              feed(e, event.target.innerText, result, myMap, clusterer, places);
               
             }
           });
@@ -81,20 +78,16 @@ function yandexMap (){
       }
     });
 
-
     myMap.events.add('click', function (e) {
       let coords = e.get('coords');
 
       ymaps.geocode(coords).then(function (headerText) { 
-        feed(e, headerText.geoObjects.get(0).properties._data.name, "");
+        feed(e, headerText.geoObjects.get(0).properties._data.name, "", myMap, clusterer, places);
         
       })
     });
-  
-    
   }
 }
-
 
 export {
   yandexMap

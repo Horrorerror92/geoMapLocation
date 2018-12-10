@@ -2,6 +2,6 @@
 import './styles/index.css';
 
 //including js
-import { yandexMap} from './js/yandexMap'; 
+import { yandexMap } from './js/yandexMap'; 
 
 yandexMap();

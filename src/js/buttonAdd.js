@@ -1,22 +1,17 @@
-  const saveCounter = (function(){
-    let count = sessionStorage.getItem('counter') || 0;
+const saveCounter = (function(){
+  let count = sessionStorage.getItem('counter') || 0;
 
-    return function (item) {
-      sessionStorage.setItem(count, item);
-      count++;
-      sessionStorage.setItem('counter', count);
-    }
+  return function (item) {
+    sessionStorage.setItem(count, item);
+    count++;
+    sessionStorage.setItem('counter', count);
+  }
+})();
 
-  })();
- 
-
-function buttonAdd(coordinates, headerText){
-
+function buttonAdd(coordinates, headerText, myMap, clusterer, places) {
   let btnAdd = document.querySelector('.form__btn');
   
-
   btnAdd.addEventListener('click', (e) => {
-
     e.preventDefault();
 
     const form = document.forms.popupform;
@@ -25,9 +20,7 @@ function buttonAdd(coordinates, headerText){
     const yourfeedback = form.elements.yourfeedback.value;
     let wrap = document.querySelector('.popup__wrapper');
     let messages = wrap.children[0];
-
     let message = document.createElement('div');
-
 
     message.classList.add('popup__list');
 
@@ -38,10 +31,7 @@ function buttonAdd(coordinates, headerText){
       <br>
       <span class="popup__msg">${yourfeedback}</span>`;
 
-    
-    messages.appendChild(message);
-     
-
+    messages.appendChild(message);   
 
     let place = new ymaps.Placemark(coordinates.get('coords'), {
       balloonContentHeader: headerText,
@@ -49,20 +39,22 @@ function buttonAdd(coordinates, headerText){
     }, {
       openBalloonOnClick: false
     });
-
+    
     saveCounter([place.geometry._coordinates,
       place.properties._data.balloonContent,
       place.properties._data.balloonContentHeader]);
+      
+    // надо вытянуть наверх
+    places.push(place);
+    clusterer.add(places);
+    myMap.geoObjects.add(clusterer);
 
-    }
-    else {
+    } else {
       alert('Заполните форму');
     }
 
-    document.querySelector('.form').reset();
-
-    
-    });
+    document.querySelector('.form').reset();  
+  });
 
 }
 

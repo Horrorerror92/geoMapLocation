@@ -57,6 +57,7 @@ function yandexMap (){
 
         ymaps.geocode(coords).then(function(headerText) {
           feed(e, headerText.geoObjects.get(0).properties._data.name, data)
+         
         });
 
       } else {
@@ -73,6 +74,7 @@ function yandexMap (){
             if (event.target.id === "ballon__header") {
               myMap.balloon.close();
               feed(e, event.target.innerText, result);
+              
             }
           });
         }
@@ -84,8 +86,8 @@ function yandexMap (){
       let coords = e.get('coords');
 
       ymaps.geocode(coords).then(function (headerText) { 
-        feed(e, headerText.geoObjects.get(0).properties._data.name, '');
-       
+        feed(e, headerText.geoObjects.get(0).properties._data.name, "");
+        
       })
     });
   

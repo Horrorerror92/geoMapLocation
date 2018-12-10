@@ -10,7 +10,7 @@
   })();
  
 
-function buttonAdd(coordinates, headerText, data){
+function buttonAdd(coordinates, headerText){
 
   let btnAdd = document.querySelector('.form__btn');
   
@@ -28,6 +28,7 @@ function buttonAdd(coordinates, headerText, data){
 
     let message = document.createElement('div');
 
+
     message.classList.add('popup__list');
 
     if((yourname !=='')&&(yourplace !=='')&&(yourfeedback !=='')) {
@@ -39,7 +40,8 @@ function buttonAdd(coordinates, headerText, data){
 
     
     messages.appendChild(message);
-    data = messages.innerHTML;
+     
+
 
     let place = new ymaps.Placemark(coordinates.get('coords'), {
       balloonContentHeader: headerText,
@@ -58,6 +60,7 @@ function buttonAdd(coordinates, headerText, data){
     }
 
     document.querySelector('.form').reset();
+
     
     });
 

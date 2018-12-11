@@ -3,10 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>{{htmlWebpackPlugin.options.title}}</title>
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=55f217fc-e9c9-486c-b2a6-9c52e927eb85&lang=ru_RU" type="text/javascript">
+  </script>
 </head>
 <body>
     <div class="wrapper">
-        {{>'./src/templates/friends-content.hbs'}}
+        <div class="map" id="map">
+            <div class="popup">
+            </div>
+        </div> 
     </div>
 </body>
 </html>

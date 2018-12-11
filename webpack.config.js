@@ -38,7 +38,7 @@ const html = files['.hbs']
 
 if (!html.length || !files['.hbs'].find(file => file.name === 'index')) {
     html.push(new HtmlPlugin({
-        title: 'Friendsfilter',
+        title: 'Geofeedback',
         template: 'index.hbs',
         chunks: ['index']
     }));
